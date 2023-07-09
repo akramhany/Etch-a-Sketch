@@ -1,5 +1,12 @@
 const container = document.getElementById('container');
 
+function getRandomColor() {
+    let redValue = Math.floor(Math.random() * 256);
+    let greenValue = Math.floor(Math.random() * 256);
+    let blueValue = Math.floor(Math.random() * 256);
+    return `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+}
+
 function makeGrid(numOfRows, numOfColumns) {
     for (let i = 0; i < numOfRows; i++) {
         const exisitngGridRows = container.style.getPropertyValue('grid-template-rows');
@@ -24,7 +31,7 @@ function makeGrid(numOfRows, numOfColumns) {
 
     cell.forEach((eachCell) => {
         eachCell.addEventListener('mouseover', () => {
-            eachCell.style.backgroundColor = 'gray';
+            eachCell.style.backgroundColor = getRandomColor();
         })
     })
 }
